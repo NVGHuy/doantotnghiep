@@ -2,21 +2,21 @@
 import { Box, colors } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import React from 'react'
+import { useState } from 'react'
 import Divider from '@mui/material/Divider'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import PersonAdd from '@mui/icons-material/PersonAdd'
 import Avatar from '@mui/material/Avatar'
 import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
-import SettingsIcon from '@mui/icons-material/Settings'
-import LogoutIcon from '@mui/icons-material/Logout'
+import SettingsIcon  from '@mui/icons-material/Settings'
+import LogoutIcon  from '@mui/icons-material/Logout'
 
 function Profiles() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const[anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
+    setAnchorEl(event.currentTarget);
   }
   const handleClose = () => {
     setAnchorEl(null)
@@ -35,10 +35,10 @@ function Profiles() {
           <Avatar
             sx={{ width: 36, height: 36 }}
             alt='GiaHuy'
+            src='https://scontent.fdad3-1.fna.fbcdn.net/v/t39.30808-1/449932819_1957019394816619_8636880080737780620_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e99d92&_nc_ohc=guQrIBMURbwQ7kNvgF93TzD&_nc_oc=Adh6GlfRanq0zcGsMi_EBSuzncVp2WzfKkFPxXVwmuI52cM_2PZSKAiPRK_09NdC5pt54uC36YQhzM0hhV3bRfuV&_nc_zt=24&_nc_ht=scontent.fdad3-1.fna&_nc_gid=zRV7vwXWfRaSsKn2QO8UKw&oh=00_AYFcyvdYFuU_R1n8t44L3PyFimo683zt8ZhSc5YdMaA0fw&oe=67DF4ED0'
           />
         </IconButton>
-      </Tooltip>
-      <Menu
+        <Menu
         id="basic-menu-profiles"
         anchorEl={anchorEl}
         open={open}
@@ -47,18 +47,10 @@ function Profiles() {
         MenuListProps={{
           'aria-labelledby': 'basic-button-profiles'
         }}
-      >
-        <Link to="/settings/account" style={{
-          color: 'inherit'
-        }}>
-          <MenuItem sx={{
-            '&:hover':{
-              color:'success.light'
-            }
-          }}>
-            <Avatar src={currentUser?.avatar} sx={{ width: 28, height: 28, mr: 2 }} /> Profile
-          </MenuItem>
-        </Link>
+        >
+        <MenuItem >
+          <Avatar sx={{ width: 28, height: 28, mr: 2 }} /> Profile
+        </MenuItem>
         <Divider />
         <MenuItem>
           <ListItemIcon>
@@ -72,7 +64,7 @@ function Profiles() {
           </ListItemIcon>
           Setting
         </MenuItem>
-        <MenuItem onClick={handleLogout} sx={{
+        <MenuItem sx={{
           '&:hover': {
             color: 'warning.dark',
             '& .logout-icon': {
@@ -85,7 +77,8 @@ function Profiles() {
           </ListItemIcon>
           Logout
         </MenuItem>
-      </Menu>
+        </Menu>
+      </Tooltip>
     </Box>
   )
 }

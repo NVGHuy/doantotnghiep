@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home'
-import Recent from './Menu/Recent'
 import Typography from '@mui/material/Typography'
 import ModeSelect from './ModeSelect/ModeSelect'
 import TextField from '@mui/material/TextField'
@@ -13,6 +12,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import { useState } from 'react'
 import Menu from './Menu/Menu'
+import Profiles from './Menu/Profiles'
 export default function AppBar() {
   const [searchValue, setSearchValue] = useState('')
   return (
@@ -44,7 +44,6 @@ export default function AppBar() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>Nhà trọ</Typography>
         </Box>
-        <Recent />
       </Box>
       <Box sx={{
         display: 'flex',
@@ -111,7 +110,7 @@ export default function AppBar() {
         <Tooltip title="Help" >
           <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'white' }} />
         </Tooltip>
-
+        <Profiles/>
       </Box>
     </Box>
   )
