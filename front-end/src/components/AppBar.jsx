@@ -24,7 +24,7 @@ export default function AppBar() {
       justifyContent: 'space-between',
       gap: 2,
       overflowX: 'auto',
-      bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#2c3e50' : '#1565c0')
+      bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#2c3e50' : '#473C8B')
     }}>
       <Box sx={{
         display: 'flex',
