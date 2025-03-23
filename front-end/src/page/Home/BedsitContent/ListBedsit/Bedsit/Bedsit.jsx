@@ -14,7 +14,9 @@ import BoyIcon from '@mui/icons-material/Boy'
 import AspectRatioIcon from '@mui/icons-material/AspectRatio'
 export default function Bedsit() {
   return (
-    <Box>
+    <Box sx={{
+      cursor:'pointer'
+    }}>
       <Card sx={{
         maxWidth: 350,
         bgcolor: 'white',
@@ -84,6 +86,24 @@ export default function Bedsit() {
               L: 10m W:4m
             </Typography>
           </Box>
+          <Box sx={{
+            display: 'flex',
+            alignItems:'center',
+            gap: 1
+          }}>
+            <BoyIcon sx={{
+              fontSize:'25px',
+              color:'rgba(0, 0, 0, 0.6)',
+              mx: -0.4
+            }} />
+            <Typography sx={{
+              fontWeight: 600,
+              fontSize: '1.4rem',
+              color:'rgba(0, 0, 0, 0.6)'            
+            }}>
+              2
+            </Typography>
+          </Box>
           <Typography sx={{
               fontWeight: 600,
               fontSize: '1.4rem',
@@ -94,7 +114,6 @@ export default function Bedsit() {
           <Typography sx={{
               fontWeight: 600,
               fontSize: '1.4rem',
-            
             }}>
               Tình trạng: Trống
             </Typography>
