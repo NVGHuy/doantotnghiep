@@ -4,6 +4,7 @@ import ListBedsit from './ListBedsit/ListBedsit'
 import Typography from '@mui/material/Typography'
 import { capitalizeFirstLetter } from '~/utils/formatters'
 import Divider from '@mui/material/Divider'
+import theme from '~/theme'
 
 export default function BedsitContent() {
   return (
@@ -18,7 +19,7 @@ export default function BedsitContent() {
       overflowX: 'auto',
       gap: 1
     }}>
-      <Typography sx={{ color:'#473C8B'}} variant='h6'>{capitalizeFirstLetter('DANH SÁCH CÁC PHÒNG TRỌ')}</Typography>
+      <Typography sx={{ color: (theme) => (theme.palette.mode === 'dark' ? 'white' :'#473C8B' )}} variant='h6'>{capitalizeFirstLetter('DANH SÁCH CÁC PHÒNG TRỌ')}</Typography>
       <Divider sx={{
         height:'2px'
       }}/>
