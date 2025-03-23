@@ -40,8 +40,8 @@ export default function Manage() {
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: "divider" }}
       >
-        <Tab label="Quản lý thông tin phòng trọ " value={TABS.INFOR_USER} component={Link} to='/manage/infor-user'/>
-        <Tab label="Quản lý thông tin người thuê" value={TABS.HOSTEL} component={Link} to='/manage/hostel'/>
+        <Tab label="Quản lý thông tin người thuê " value={TABS.INFOR_USER} component={Link} to='/manage/infor-user'/>
+        <Tab label="Quản lý thông tin phòng trọ" value={TABS.HOSTEL} component={Link} to='/manage/hostel'/>
       </Tabs>
 
       {/* Tab Panels */}

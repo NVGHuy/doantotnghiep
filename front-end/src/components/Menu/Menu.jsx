@@ -19,6 +19,8 @@ import Collapse from '@mui/material/Collapse'
 import PaymentIcon from '@mui/icons-material/Payment'
 import FolderSharedIcon from '@mui/icons-material/FolderShared'
 import ManageSearchIcon from '@mui/icons-material/ManageSearch'
+
+import { Link } from 'react-router-dom'
 export default function Menu() {
   const [open, setOpen] = useState(false);
 
@@ -36,12 +38,14 @@ export default function Menu() {
     <Box sx={{ width: 250 }} role="presentation" >
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary='Trang Chủ' />
-          </ListItemButton>
+            <Link to='/' style={{ color: 'inherit', width:'100%'}}>
+            <ListItemButton>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary='Trang Chủ' />
+            </ListItemButton>
+          </Link>
         </ListItem>
       </List>
       <Divider />
@@ -64,31 +68,33 @@ export default function Menu() {
           </ListItemButton>
         </ListItem>
         <Collapse in={handleOpen} timeout="auto" unmountOnExit>
-            <List disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <PaymentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Hóa đơn thanh toán" />
-              </ListItemButton>
-            </List>
-            <List disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <FolderSharedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Hợp đồng thuê & thời gian hết hạn" />
-              </ListItemButton>
-            </List>
-            <List disablePadding>
+          <List disablePadding>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <PaymentIcon />
+              </ListItemIcon>
+              <ListItemText primary="Hóa đơn thanh toán" />
+            </ListItemButton>
+          </List>
+          <List disablePadding>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <FolderSharedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Hợp đồng thuê & thời gian hết hạn" />
+            </ListItemButton>
+          </List>
+          <List disablePadding>
+            <Link to='/manage/infor-user' style={{ color: 'inherit' }}>
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemIcon>
                   <ManageSearchIcon />
                 </ListItemIcon>
                 <ListItemText primary="Quản lý thông tin phòng trọ" />
               </ListItemButton>
-            </List>
-          </Collapse>
+            </Link>
+          </List>
+        </Collapse>
         <ListItem disablePadding>
           <ListItemButton >
             <ListItemIcon>

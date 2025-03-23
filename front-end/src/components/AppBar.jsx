@@ -13,6 +13,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import { useState } from 'react'
 import Menu from './Menu/Menu'
 import Profiles from './Menu/Profiles'
+import { Link } from 'react-router-dom'
 export default function AppBar() {
   const [searchValue, setSearchValue] = useState('')
   return (
@@ -32,15 +33,17 @@ export default function AppBar() {
         gap: 2
       }}>
         <Tooltip title='Trang Chủ'>
-          <Menu/>
+          <Menu />
         </Tooltip>
-        <Tooltip title='Trang Chủ'>
-          <HomeIcon sx={{
-            color: 'white',
-            cursor: 'pointer',
-            fontSize: '30px'
-          }} />
-        </Tooltip>
+        <Link to='/'>
+          <Tooltip title='Trang Chủ'>
+            <HomeIcon sx={{
+              color: 'white',
+              cursor: 'pointer',
+              fontSize: '30px'
+            }} />
+          </Tooltip>
+        </Link>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>Nhà trọ</Typography>
         </Box>
@@ -110,7 +113,7 @@ export default function AppBar() {
         <Tooltip title="Help" >
           <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'white' }} />
         </Tooltip>
-        <Profiles/>
+        <Profiles />
       </Box>
     </Box>
   )

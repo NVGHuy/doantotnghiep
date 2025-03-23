@@ -65,7 +65,8 @@ export default function Bedsit() {
           </Typography>
           <Typography variant='span' sx={{
             fontWeight: 500,
-            fontSize: '1.4rem'
+            fontSize: '1.4rem',
+            color:'black'
           }}>
             Phòng số 24
           </Typography>
@@ -114,6 +115,7 @@ export default function Bedsit() {
           <Typography sx={{
               fontWeight: 600,
               fontSize: '1.4rem',
+              color:'black'
             }}>
               Tình trạng: Trống
             </Typography>
