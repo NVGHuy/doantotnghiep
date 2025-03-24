@@ -12,11 +12,13 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import BoyIcon from '@mui/icons-material/Boy'
 import AspectRatioIcon from '@mui/icons-material/AspectRatio'
+import { Link } from 'react-router-dom'
 export default function Bedsit() {
   return (
     <Box sx={{
       cursor:'pointer'
     }}>
+      <Link to='/infor-room'>
       <Card sx={{
         maxWidth: 350,
         bgcolor: 'white',
@@ -121,6 +123,7 @@ export default function Bedsit() {
             </Typography>
         </CardContent>
       </Card>
+      </Link>
     </Box>
   )
 }
