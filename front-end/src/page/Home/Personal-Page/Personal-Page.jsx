@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Box, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Avatar, Grid } from '@mui/material';
 import Footer from '../../../components/Footer/Footer';
 import { pad } from 'lodash';
-import { PaddingOutlined } from '@mui/icons-material';
+import { PaddingOutlined } from '@mui/icons-materia
+funimport AppBar from '~/components/AppBar'
 
 function Profile() {
   const [avatar, setAvatar] = useState(null);
@@ -23,15 +24,18 @@ function Profile() {
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center', 
-      p: 3, 
-      paddingTop: 10, 
-      paddingBottom: 0, 
+      p: 0 , 
+      paddingTop: 0, 
+      paddingBottom: -1, 
       minHeight: '100vh',
-      backgroundImage: 'url(/src/image/anhrung.jpg)',
+      backgroundImage: 'url(/src/assets/image/anhrung.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
-    }}>
+    }}> 
+      
+    <AppBar/>
+    <Box sx={{ mt: 4, width: '100%' }}></Box>
       <Grid container spacing={2} sx={{ width: '100%', maxWidth: 1200 }}>
         <Grid item xs={12} md={4}>
           <Box sx={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', p: 2, borderRadius: 2 }}>
@@ -68,7 +72,7 @@ function Profile() {
             </Box>
             <TextField fullWidth label="Email" variant="outlined" margin="normal" />
             <TextField fullWidth label="Địa chỉ" variant="outlined" margin="normal" />
-            <TextField fullWidth label="Mật khẩu" variant="outlined" margin="normal" type="password" />
+ield fullWidth label="Địa chỉ" variant="outlined" margin="normal" />
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
               <Button variant="contained" color="primary">Lưu</Button>
               <Button variant="outlined" color="secondary">Hủy</Button>

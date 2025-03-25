@@ -5,7 +5,7 @@ function Footer() {
   return (
     <Box sx={{ bgcolor: 'primary.main', color: 'white', p: 2, mt: 'auto' }}>
       <Typography variant="body1" align="center">
-        &copy; {new Date().getFullYear()} The Coffee House. All rights reserved.
+        &copy; {new Date().getFullYear()} We are team .The one and only
       </Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
         <Link href="#" color="inherit" sx={{ mx: 1 }}>
