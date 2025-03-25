@@ -156,7 +156,7 @@ export default function InforRoom() {
                 width: '50%',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 1
+                gap: 2
               }}>
                 <Box sx={{
                   display: 'flex',
