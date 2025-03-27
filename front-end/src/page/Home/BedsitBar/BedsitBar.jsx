@@ -10,6 +10,9 @@ import AddToDriveIcon from '@mui/icons-material/AddToDrive'
 import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
+
+import { useSelector } from 'react-redux'
+import { selectCurrentActiveHostel } from '~/redux/activeHostel/activeHostelSlice'
 const MENU_STYLES = {
   color: 'white', bgcolor: 'transparent', border: 'none', paddingX: '5px', borderRadius: '5px',
   '.MuiSvgIcon-root': {
@@ -20,7 +23,7 @@ const MENU_STYLES = {
   }
 }
 export default function BedsitBar() {
-
+  const hostel = useSelector(selectCurrentActiveHostel)
   return (
     <Box sx={{
       width: '100%',
@@ -35,10 +38,10 @@ export default function BedsitBar() {
       background: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : "linear-gradient(to bottom, #473C8B, #9370DB)")
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Tooltip title='giaHUy dẹp e'>
+        <Tooltip title={hostel.address}>
           <Chip
             sx={MENU_STYLES}
-            icon={<DashboardIcon />} label='GiaHuy' clickable />
+            icon={<DashboardIcon />} label={hostel?.hostelName} clickable />
         </Tooltip>
         <Chip
           sx={MENU_STYLES}

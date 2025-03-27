@@ -1,4 +1,6 @@
+import { StatusCodes } from 'http-status-codes'
 import { hostelModel } from '~/models/hostelModel'
+import ApiError from '~/utils/ApiError'
 
 const createNew = async (reqBody) => {
   try {
@@ -12,6 +14,18 @@ const createNew = async (reqBody) => {
     throw error
   }
 }
+const getDetails = async (hostelId) => {
+  try {
+    const hostel = await hostelModel.getDetails(hostelId)
+    if (!hostel) {
+      throw new ApiError(StatusCodes.NOT_FOUND, 'Hostel not found')
+    }
+    return hostel
+  } catch (error) {
+    throw error
+  }
+}
 export const hostelService = {
-  createNew
+  createNew,
+  getDetails
 }

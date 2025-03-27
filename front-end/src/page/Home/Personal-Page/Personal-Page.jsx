@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Box, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Avatar, Grid } from '@mui/material';
 import Footer from '../../../components/Footer/Footer';
 import { pad } from 'lodash';
-import { PaddingOutlined } from '@mui/icons-materia
-funimport AppBar from '~/components/AppBar'
+import { PaddingOutlined } from '@mui/icons-material'
+import AppBar from '~/components/AppBar'
 
 function Profile() {
   const [avatar, setAvatar] = useState(null);
@@ -72,7 +72,7 @@ function Profile() {
             </Box>
             <TextField fullWidth label="Email" variant="outlined" margin="normal" />
             <TextField fullWidth label="Địa chỉ" variant="outlined" margin="normal" />
-ield fullWidth label="Địa chỉ" variant="outlined" margin="normal" />
+            <TextField fullWidth label="Địa chỉ" variant="outlined" margin="normal" />
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
               <Button variant="contained" color="primary">Lưu</Button>
               <Button variant="outlined" color="secondary">Hủy</Button>

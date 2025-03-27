@@ -5,6 +5,8 @@
  */
 //client->routers->valication->controler<->service<->model<->database
 import express from 'express'
+import cors from 'cors' // Dùng để ngăn chặn không cho những domain khác truy cập vào lấy tài nguyên
+import { corsOptions } from './config/cors'
 import exitHook from 'async-exit-hook'
 import { CONNECT_DB, CLOSE_DB } from '~/config/mongodb'
 import { env } from '~/config/environment'
@@ -12,12 +14,14 @@ import { APIs_V1 } from '~/routes/v1'
 import { errorHandlingMiddleware } from '~/middlewares/errorHandlingMiddleware'
 const START_SERVER = () => {
   const app = express()
-
   // Fix cái vụ Cache from disk của ExpressJS
   app.use((req, res, next) => {
     res.set('Cache-Control', 'no-store')
     next()
   })
+  //Xử lý cors
+  app.use(cors(corsOptions))
+
 
   app.use(express.json())
   //Use APIs v1

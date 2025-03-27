@@ -44,7 +44,18 @@ const findOneById = async (id) => {
     throw new Error(error)
   }
 }
+const getDetails = async (id) => {
+  try {
+    const result = await GET_DB().collection(HOSTEL_COLLECTION_NAME).findOne({
+      _id: new ObjectId(id)
+    })
+    return result
+  } catch (error) {
+    throw new Error(error)
+  }
+}
 export const hostelModel = {
   createNew,
-  findOneById
+  findOneById,
+  getDetails
 }
