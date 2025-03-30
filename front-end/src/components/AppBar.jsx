@@ -29,7 +29,7 @@ export default function AppBar() {
     }}>
       <Box sx={{
         display: 'flex',
-        alignItems: "center",
+        alignItems: 'center',
         gap: 2
       }}>
         <Tooltip title='Trang Chủ'>
@@ -50,7 +50,7 @@ export default function AppBar() {
       </Box>
       <Box sx={{
         display: 'flex',
-        alignItems: "center",
+        alignItems: 'center',
         gap: 2
       }}>
         <TextField
@@ -73,9 +73,9 @@ export default function AppBar() {
                   cursor: 'pointer',
                   fontSize: '1.3rem'
                 }}
-                  onClick={() => {
-                    setSearchValue('')
-                  }} />
+                onClick={() => {
+                  setSearchValue('')
+                }} />
               </InputAdornment>
             )
           }}

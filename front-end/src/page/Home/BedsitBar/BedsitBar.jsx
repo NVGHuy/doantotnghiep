@@ -38,7 +38,7 @@ export default function BedsitBar() {
       background: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : "linear-gradient(to bottom, #473C8B, #9370DB)")
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Tooltip title={hostel.address}>
+        <Tooltip title={hostel?.address}>
           <Chip
             sx={MENU_STYLES}
             icon={<DashboardIcon />} label={hostel?.hostelName} clickable />

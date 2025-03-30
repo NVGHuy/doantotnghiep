@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 import { API_ROOT } from '~/utils/constants'
+
+import authorizeAxiosInstance from '~/utils/authorizeAxios'
 // Khởi tạo giá trị State của 1 cái slice trong redux
 const initialState = {
   currentActiveHostel: null
@@ -11,7 +12,7 @@ const initialState = {
 export const fetchHostelDetailsAPI = createAsyncThunk(
   'activeHostel/fetchHostelDetailsAPI',
   async (hostelId) => {
-    const response = await axios.get(`${API_ROOT}/v1/hostel/${hostelId}`)
+    const response = await authorizeAxiosInstance.get(`${API_ROOT}/v1/hostel/${hostelId}`)
     return response.data
   }
 )

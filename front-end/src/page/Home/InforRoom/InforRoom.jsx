@@ -9,7 +9,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import theme from '~/theme'
 
 // Rechart
