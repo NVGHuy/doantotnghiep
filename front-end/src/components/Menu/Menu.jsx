@@ -21,7 +21,7 @@ import FolderSharedIcon from '@mui/icons-material/FolderShared'
 import ManageSearchIcon from '@mui/icons-material/ManageSearch'
 
 import { Link } from 'react-router-dom'
-export default function Menu() {
+function Menu() {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -125,5 +125,6 @@ export default function Menu() {
         {DrawerList}
       </Drawer>
     </Box>
-  );
+  )
 }
+export default Menu

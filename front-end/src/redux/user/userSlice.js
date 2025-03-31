@@ -51,7 +51,7 @@ export const userSlice = createSlice({
       // action.payload ở đây chính là cái response.data trả về ở trên fetchBoardDetailsAPI
       const user = action.payload
 
-      // Update lại dữ liệu của currentAcitiveUser
+      // Update lại dữ liệu của currentAcitiveBoard
       state.currentUser = user
     })
     builder.addCase(logoutUserAPI.fulfilled, (state) => {
@@ -75,7 +75,7 @@ export const userSlice = createSlice({
 //  là được thằng redux tạo tự động theo tên của reducer nhé.
 // export const {} = userSlice.actions
 
-// Selectors: là nơi dành cho các components bên dưới gọi bằng hook useSelector() để lấy dữ liệu từ trong kho redux store ra sử dụng
+// Selectors: là nơi dành cho các components bên dưới gọi bằng hook useSelector() để lấy dữ liệ từ trong kho redux store ra sử dụng
 export const selectCurrentUser = (state) => {
   return state.user.currentUser
 }

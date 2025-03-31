@@ -14,7 +14,7 @@ import { useState } from 'react'
 import Menu from './Menu/Menu'
 import Profiles from './Menu/Profiles'
 import { Link } from 'react-router-dom'
-export default function AppBar() {
+function AppBar() {
   const [searchValue, setSearchValue] = useState('')
   return (
     <Box px={2} sx={{
@@ -118,3 +118,4 @@ export default function AppBar() {
     </Box>
   )
 }
+export default AppBar

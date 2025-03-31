@@ -1,4 +1,4 @@
-import { Box, colors } from '@mui/material'
+import { Box } from '@mui/material'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { useState } from 'react'
@@ -44,7 +44,7 @@ function Profiles() {
           <Avatar
             sx={{ width: 36, height: 36 }}
             alt='GiaHuy'
-            src='https://scontent.fdad3-1.fna.fbcdn.net/v/t39.30808-1/449932819_1957019394816619_8636880080737780620_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e99d92&_nc_ohc=guQrIBMURbwQ7kNvgF93TzD&_nc_oc=Adh6GlfRanq0zcGsMi_EBSuzncVp2WzfKkFPxXVwmuI52cM_2PZSKAiPRK_09NdC5pt54uC36YQhzM0hhV3bRfuV&_nc_zt=24&_nc_ht=scontent.fdad3-1.fna&_nc_gid=zRV7vwXWfRaSsKn2QO8UKw&oh=00_AYFcyvdYFuU_R1n8t44L3PyFimo683zt8ZhSc5YdMaA0fw&oe=67DF4ED0'
+            src=''
           />
         </IconButton>
       </Tooltip>

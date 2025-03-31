@@ -4,7 +4,7 @@ import svgr from 'vite-plugin-svgr'
 // https://vitejs.dev/config/
 export default defineConfig({
   // Cho phép thằng Vite sử dụng được, mặc định thì không mà sẽ phải dùng import.meta.env
-  
+  optimizeDeps: { include: ['@mui/material/Tooltip'] },
   define:{
     'process.env': process.env
   },

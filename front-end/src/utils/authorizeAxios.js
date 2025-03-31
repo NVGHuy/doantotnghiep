@@ -2,10 +2,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 import { interceptorLoadingElements } from '~/utils/formatters'
-// import { refreshTokenAPI } from '~/apis'
-// import { logoutUserAPI } from '~/redux/user/userSlice'
-
-
+import { refreshTokenAPI } from '~/apis'
+import { logoutUserAPI } from '~/redux/user/userSlice'
 
 /**
  * Không thể import { store } from '~/redux/store' theo cách thông thường ở đây
@@ -60,51 +58,51 @@ authorizeAxiosInstance.interceptors.response.use((response) => {
 
   // Kỹ thuật chặn spam click (Xem kỹ mô tả ở file formatters chứa function)
   interceptorLoadingElements(false)
-  // /** Quan trọng: Xử lý refresh token tự động */
-  // // Trường hợp 1: Nếu như nhận mã 401 từ BE. thì gọi API đăng xuất luôn
-  // if (error.response?.status === 401) {
-  //   axiosReduxStore.dispatch(logoutUserAPI(false))
-  // }
-  // // Trường hợp 2: Nếu như nhận mã 410 từ BE, thì goi api refresh Token để làm mới lại accessToken
-  // // Đầu tiên lấy được cái req api bị lỗi thông qua error.config
-  // const originalRequests = error.config
-  // console.log('originalRequests:', originalRequests)
-  // if (error.response?.status === 410 && !originalRequests._retry) {
-  //   // Gán thêm một giá trị _retry luôn = true trong khoảng thời gian chờ, đảm bảo việc refresh token này chỉ luôn gọi 1 lần
-  //   //tại 1 thời điêmr (  nhìn lại đk if ở phía trên)
-  //   originalRequests._retry = true
+  /** Quan trọng: Xử lý refresh token tự động */
+  // Trường hợp 1: Nếu như nhận mã 401 từ BE. thì gọi API đăng xuất luôn
+  if (error.response?.status === 401) {
+    axiosReduxStore.dispatch(logoutUserAPI(false))
+  }
+  // Trường hợp 2: Nếu như nhận mã 410 từ BE, thì goi api refresh Token để làm mới lại accessToken
+  // Đầu tiên lấy được cái req api bị lỗi thông qua error.config
+  const originalRequests = error.config
+  console.log('originalRequests:', originalRequests)
+  if (error.response?.status === 410 && !originalRequests._retry) {
+    // Gán thêm một giá trị _retry luôn = true trong khoảng thời gian chờ, đảm bảo việc refresh token này chỉ luôn gọi 1 lần
+    //tại 1 thời điêmr (  nhìn lại đk if ở phía trên)
+    originalRequests._retry = true
 
-  //   // Kiểm tra nếu chưa có refreskTokenPromise thì thực hiện gán việc gọi api refresh_token đồng thời gán vào cho cái refreshTokenPromise
-  //   if (!refreshTokenPromise) {
-  //     refreshTokenPromise = refreshTokenAPI()
-  //       .then(data => {
-  //         // Đồng thời accessToken đã nằm trong httpOnly cookie (Xửu lý từ phía Back_end )
-  //         return data?.accessToken
-  //       })
-  //       .catch((_error) => {
-  //         // Nếu nhận bất kì lỗi nào từ api refresh token thì cứ logout luôn
-  //         axiosReduxStore.dispatch(logoutUserAPI(false))
-  //         return Promise.reject(_error)
-  //       })
-  //       .finally(() => {
-  //         // Dù API có oke hay lỗi thì vẫn luôn gán lại refreshTokenPromise về null như ban đầu
-  //         refreshTokenPromise = null
-  //       })
-  //   }
-  //   // Cần return trường hợp refreshTokenPromise chạy thành công và xử lý thêm ở đây:
-  //   // eslint-disable-next-line no-unused-vars
-  //   return refreshTokenPromise.then(accessToken => {
-  //     /**
-  //      * Bước 1: Đối với Trường hợp nếu dự án cần lưu accessToken vào localstorage hoặc đâu đó thì sẽ viết thêm code xử lý ở đây.
-  //      * Hiện tại ở đây không cần bước 1 này vì chúng ta đã đưa accessToken vào cookie (xử lý từ phía BE) sau khi
-  //     api refreshToken được gọi thành công.
-  //      */
+    // Kiểm tra nếu chưa có refreskTokenPromise thì thực hiện gán việc gọi api refresh_token đồng thời gán vào cho cái refreshTokenPromise
+    if (!refreshTokenPromise) {
+      refreshTokenPromise = refreshTokenAPI()
+        .then(data => {
+          // Đồng thời accessToken đã nằm trong httpOnly cookie (Xửu lý từ phía Back_end )
+          return data?.accessToken
+        })
+        .catch((_error) => {
+          // Nếu nhận bất kì lỗi nào từ api refresh token thì cứ logout luôn
+          axiosReduxStore.dispatch(logoutUserAPI(false))
+          return Promise.reject(_error)
+        })
+        .finally(() => {
+          // Dù API có oke hay lỗi thì vẫn luôn gán lại refreshTokenPromise về null như ban đầu
+          refreshTokenPromise = null
+        })
+    }
+    // Cần return trường hợp refreshTokenPromise chạy thành công và xử lý thêm ở đây:
+    // eslint-disable-next-line no-unused-vars
+    return refreshTokenPromise.then(accessToken => {
+      /**
+       * Bước 1: Đối với Trường hợp nếu dự án cần lưu accessToken vào localstorage hoặc đâu đó thì sẽ viết thêm code xử lý ở đây.
+       * Hiện tại ở đây không cần bước 1 này vì chúng ta đã đưa accessToken vào cookie (xử lý từ phía BE) sau khi
+      api refreshToken được gọi thành công.
+       */
 
-  //     // Bước 2: Bước Quan trọng: Return lại axios instance của chúng ta kết hợp các originalRequests để gọi lại những api ban đầu bị lỗi
+      // Bước 2: Bước Quan trọng: Return lại axios instance của chúng ta kết hợp các originalRequests để gọi lại những api ban đầu bị lỗi
 
-  //     return authorizeAxiosInstance(originalRequests)
-  //   })
-  // }
+      return authorizeAxiosInstance(originalRequests)
+    })
+  }
 
 
   // Xư lý tập trung phần hiển thị thông báo từ nơi trả vè API ở đây (viết code một lần. Clean Code)

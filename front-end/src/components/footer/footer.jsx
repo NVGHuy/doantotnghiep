@@ -1,5 +1,6 @@
-import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
+import { Box } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -22,4 +23,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Footer
